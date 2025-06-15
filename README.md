@@ -10,6 +10,7 @@ A simple yet powerful note-taking application built with the MERN (MongoDB, Expr
 * Responsive, mobile-first design
 * Rate Limiting with Upstash Redis
 * Rest API
+* Beautiful UI made with ReactJS and Tailwind CSS
 
 ## Tech Stack
 
@@ -22,6 +23,7 @@ A simple yet powerful note-taking application built with the MERN (MongoDB, Expr
 * Node.js
 * npm
 * MongoDB Atlas account
+* Upstash Account - Redis (for ratelimitting)
 
 ## Installation
 
@@ -32,29 +34,21 @@ A simple yet powerful note-taking application built with the MERN (MongoDB, Expr
    cd MERN-ZenNote
    ```
 
-2. **Install dependencies**
-
-   * **Backend**
-
-     ```bash
-     cd backend
-     npm install
-     ```
-
-   * **Frontend**
-
-     ```bash
-     cd ../frontend
-     npm install
-     ```
+2. **Install dependencies and build the application**
+   ```bash
+   npm run build
+   ```
+   
 
 ## Environment Variables
 
 Create a `.env` file in the `backend` folder with the following values:
 
 ```dotenv
-PORT=5000
+PORT=5001
 MONGO_URI=your_mongodb_connection_string
+UPSTASH_REDIS_REST_URL=your_upstash_redis_url
+UPSTASH_REDIS_REST_TOKEN=your_upstash_redis_token
 ```
 
 ## Running the Application
@@ -91,7 +85,7 @@ MERN-ZenNote/
     │   ├── lib/      # API calls, helpers
     │   ├── App.jsx      # App entry
     │   └── main.jsx    # React DOM render
-    ├── package.json
+    ├── package.json    # Dependencies
     └── index.html
 ```
 
@@ -101,7 +95,7 @@ MERN-ZenNote/
 
 * `GET /api/notes` — Fetch all notes for authenticated user
 * `POST /api/notes` — Create a new note
-* `GET /api/notes/:id` — Get a single note
+* `GET /api/notes/:id` — Get details of single note
 * `PUT /api/notes/:id` — Update a note
 * `DELETE /api/notes/:id` — Delete a note
 
@@ -120,10 +114,3 @@ MERN-ZenNote/
 * Edit the Note
 * ![image](https://github.com/user-attachments/assets/4af60ce9-ae6c-47b7-9d96-551fa859dcb2)
 
-
-## Acknowledgements
-
-* [MERN Starter Kit](https://github.com/mernjs/mern)
-* [React Docs](https://reactjs.org)
-* [Express Docs](https://expressjs.com)
-* [MongoDB Docs](https://docs.mongodb.com)
